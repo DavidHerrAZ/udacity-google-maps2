@@ -1,4 +1,3 @@
-import { GoogleMapConfig } from '../config';
 import React from 'react';
 import { compose, withProps } from 'recompose';
 import {
@@ -8,10 +7,15 @@ import {
   Marker,
 } from 'react-google-maps';
 
+// Set config variables for google map from config.js
+import { GoogleMapConfig } from '../config';
+
 const configKey = GoogleMapConfig.key;
 const configCenter = GoogleMapConfig.center;
 const configZoom = GoogleMapConfig.zoom;
 
+// code snippets modified from react-google-maps documentation
+// https://tomchentw.github.io/react-google-maps/#documentation
 const Map = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${configKey}&v=3`,
