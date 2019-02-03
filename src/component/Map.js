@@ -6,6 +6,7 @@ import {
   GoogleMap,
   Marker,
 } from 'react-google-maps';
+import Markers from '../component/Marker';
 
 // Set config variables for google map from config.js
 import { GoogleMapConfig } from '../config';
@@ -25,9 +26,10 @@ const Map = compose(
   }),
   withScriptjs,
   withGoogleMap
-)((props) => (
+)((locations) => (
   <GoogleMap defaultZoom={configZoom} defaultCenter={configCenter}>
     <Marker position={configCenter} />
+    <Markers locations={locations} />
   </GoogleMap>
 ));
 
