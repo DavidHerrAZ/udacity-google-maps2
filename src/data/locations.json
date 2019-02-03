@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Local Jonny's",
+    "position": { "lat": 33.8327683, "lng": -111.9522198 }
+  },
+  {
+    "title": "Black Mountain Tavern & Distillery",
+    "position": { "lat": 33.766284, "lng": -111.9853488 }
+  },
+  {
+    "title": "The Whining Pig Desert Ridge",
+    "position": { "lat": 33.6764052, "lng": -111.9748198 }
+  },
+  {
+    "title": "La Bocca Wine Bar & Urban Kitchen",
+    "position": { "lat": 33.6754294, "lng": -111.9663598 }
+  },
+  {
+    "title": "Indigo Crow Restaurant & Bar",
+    "position": { "lat": 33.8298064, "lng": -111.9308306 }
+  }
+]
