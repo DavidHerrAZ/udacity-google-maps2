@@ -28,14 +28,13 @@ const Map = compose(
   withGoogleMap
 )((locations) => (
   <GoogleMap defaultZoom={configZoom} defaultCenter={configCenter}>
-    <Marker position={configCenter} />
-    <Markers locations={locations} />
+    <Markers locations={locations} configCenter={configCenter} />
   </GoogleMap>
 ));
 
 class MapComponent extends React.Component {
   render() {
-    return <Map />;
+    return <Map className="App-map" />;
   }
 }
 

@@ -9,18 +9,28 @@ class Markers extends React.Component {
 
   render() {
     // set locations object to passed props
-    const { locations } = this.props;
+    const { locations, configCenter } = this.props;
     // further deconstruct locations object for map function
     const mapLocations = locations.locations;
 
+    // Declare google to set marker animation
+    const google = window.google;
+
     return (
       <>
+        <Marker
+          title="Home"
+          name="Home"
+          position={configCenter}
+          animation={google.maps.Animation.BOUNCE}
+        />
         {mapLocations.map((location) => (
           <Marker
             key={(location.position.lat, location.position.lng)}
             title={location.title}
             name={location.title}
             position={location.position}
+            animation={google.maps.Animation.DROP}
           />
         ))}
       </>
