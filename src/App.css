@@ -1,0 +1,20 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.App-header {
+  height: 40px;
+}
+
+.App-logo {
+  height: 100%;
+}
+
+.App-sidebar {
+  width: 30%;
+  height: calc(100vh - 40px);
+}
+
+.App-map {
+  width: 70%;
+}
