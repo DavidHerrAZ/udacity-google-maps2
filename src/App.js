@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.png';
 import './App.css';
 import Map from './component/Map';
+import Sidebar from './component/SideBar';
 import locations from './data/locations.json';
 
 class App extends Component {
@@ -20,8 +21,10 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        {/* Pass locations state for use in initial marker drops */}
-        <Map locations={this.state.locations} />
+        <main>
+          <Sidebar className="App-sidebar" />
+          <Map className="App-map" locations={this.state.locations} />
+        </main>
       </div>
     );
   }
