@@ -2,6 +2,10 @@ body {
   color: #615d59;
 }
 
+header {
+  padding: 1rem 0 1rem 1.5rem;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +28,7 @@ main {
 
 .App-sidebar {
   width: 30%;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 40px - 2rem);
 }
 
 .App-map {

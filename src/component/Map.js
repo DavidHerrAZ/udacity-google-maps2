@@ -17,7 +17,10 @@ const Map = compose(
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${configKey}&v=3`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: (
-      <div className="App-map" style={{ height: `calc(100vh - 40px)` }} />
+      <div
+        className="App-map"
+        style={{ height: `calc(100vh - 40px - 2rem)` }}
+      />
     ),
     mapElement: <div style={{ height: `100%` }} />,
   }),
