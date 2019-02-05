@@ -11,6 +11,12 @@ main {
   flex-wrap: wrap;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+}
+
 .App-search {
   width: 80%;
   margin: 1rem;

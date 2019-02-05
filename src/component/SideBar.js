@@ -1,4 +1,5 @@
 import React from 'react';
+import Listing from './Listing';
 
 class Sidebar extends React.Component {
   state = {
@@ -33,6 +34,10 @@ class Sidebar extends React.Component {
             this.updateQuery(event.target.value);
           }}
         />
+
+        <ul className="App-listings">
+          <Listing locations={locations} />
+        </ul>
       </div>
     );
   }
