@@ -1,9 +1,21 @@
+body {
+  color: #615d59;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
 }
+
+.App-search {
+  width: 80%;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
 .App-header {
   height: 40px;
+  background-color: #244c5a;
 }
 
 .App-logo {
