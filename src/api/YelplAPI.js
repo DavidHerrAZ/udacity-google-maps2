@@ -15,4 +15,6 @@ export const getLocationDetails = (term, latitude, longitude, radius) =>
     {
       headers: yelpHeaders,
     }
-  );
+  )
+    .then((res) => res.json())
+    .then((data) => data.businesses[0]);

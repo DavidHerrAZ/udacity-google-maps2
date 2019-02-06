@@ -9,18 +9,21 @@ import * as Yelp from './api/YelplAPI';
 class App extends Component {
   state = {
     locations: [],
+    yelpDetails: [],
   };
 
   // Set state to required 5 app locations on app mount
   componentDidMount() {
     this.setState({ locations });
 
-    Yelp.getLocationDetails(
-      locations[0].title,
-      locations[0].position.lat,
-      locations[0].position.lng,
-      500
-    );
+    locations.map((location) => {
+      Yelp.getLocationDetails(
+        location.title,
+        location.position.lat,
+        location.position.lng,
+        500
+      ).then((data) => console.log(data));
+    });
   }
 
   render() {
