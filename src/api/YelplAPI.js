@@ -17,4 +17,6 @@ export const getLocationDetails = (term, latitude, longitude, radius) =>
     }
   )
     .then((res) => res.json())
+    // For simplicity, assume the first result is closest match
+    // OK for MVP due to supplying name, lat/lng, and small search radius.
     .then((data) => data.businesses[0]);
