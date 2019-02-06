@@ -16,4 +16,3 @@ export const getLocationDetails = (term, latitude, longitude, radius) =>
       headers: yelpHeaders,
     }
   );
-S;
