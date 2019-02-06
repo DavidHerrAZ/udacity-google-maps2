@@ -30,7 +30,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <main>
-          <Sidebar className="App-sidebar" locations={this.state.locations} />
+          <Sidebar locations={this.state.locations} />
           <Map locations={this.state.locations} />
         </main>
       </div>
