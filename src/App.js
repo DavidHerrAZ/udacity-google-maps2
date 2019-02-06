@@ -9,7 +9,6 @@ import * as Yelp from './api/YelplAPI';
 class App extends Component {
   state = {
     locations: [],
-    yelpDetails: [],
   };
 
   // Set state to required 5 app locations on app mount
@@ -22,7 +21,7 @@ class App extends Component {
         location.position.lat,
         location.position.lng,
         500
-      ).then((data) => console.log(data));
+      ).then((data) => console.log(data, location.id));
     });
   }
 
