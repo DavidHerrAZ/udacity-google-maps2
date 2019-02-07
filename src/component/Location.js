@@ -16,7 +16,16 @@ class Location extends React.Component {
             key={location.yelpDetails.id || location.title}
             className="location-card"
           >
-            {location.title}
+            <h3>{location.title}</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Price: {location.yelpDetails.price || `N/A`}</td>
+                  <td>Rating: {location.yelpDetails.rating || `N/A`}</td>
+                  <td>Reviews: {location.yelpDetails.review_count || `N/A`}</td>
+                </tr>
+              </tbody>
+            </table>
           </li>
         ))}
       </ul>

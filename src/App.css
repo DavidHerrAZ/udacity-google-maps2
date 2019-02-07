@@ -6,6 +6,19 @@ header {
   padding: 1rem 0 1rem 1.5rem;
 }
 
+h1 {
+  margin: 0;
+  padding-left: 1rem;
+  display: inline;
+  color: #fff;
+  vertical-align: top;
+}
+
+h2 {
+  padding-left: 1rem;
+  flex: 0 1 auto;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -15,12 +28,20 @@ ul {
   list-style: none;
   margin: 0;
   padding: 1rem;
+  overflow: auto;
+  /*
+  * Set ul to fill remaining sidebar space
+  * https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space
+   */
+  flex: 1 1 auto;
 }
 
 .App-search {
   width: 80%;
+  max-width: calc(100% - 3rem);
   margin: 1rem;
   padding: 0.5rem;
+  flex: 0 1 auto;
 }
 
 .App-header {
@@ -33,6 +54,8 @@ ul {
 }
 
 .App-sidebar {
+  display: inherit;
+  flex-flow: column;
   width: 30%;
   height: calc(100vh - 40px - 2rem);
 }

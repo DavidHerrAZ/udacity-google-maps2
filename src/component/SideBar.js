@@ -44,6 +44,7 @@ class Sidebar extends React.Component {
 
     return (
       <div className="App-sidebar">
+        <h2>Explore The Hood</h2>
         <input
           className="App-search"
           type="text"
