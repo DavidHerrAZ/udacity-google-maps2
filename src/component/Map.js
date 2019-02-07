@@ -22,7 +22,6 @@ const Map = compose(
         style={{ height: `calc(100vh - 40px - 2rem)` }}
         role="application"
         aria-label="Neighborhood Map"
-        tabIndex="0"
       />
     ),
     mapElement: <div style={{ height: `100%` }} />,

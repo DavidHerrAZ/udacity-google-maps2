@@ -16,6 +16,7 @@ class Location extends React.Component {
             key={location.yelpDetails.id || location.title}
             className="location-card"
             id="location-card"
+            tabIndex="0"
           >
             <h3>{location.title}</h3>
             <dl className="location-details">
