@@ -14,7 +14,7 @@ class App extends Component {
   };
 
   // Set state to required 5 app locations at mount w/ static data.
-  componentWillMount() {
+  componentDidMount() {
     this.setState({ locations });
 
     // Then call yelp to supplement with business details & re-set state.
@@ -77,7 +77,14 @@ class App extends Component {
         </header>
         <main>
           <Sidebar
-            locations={searchResults}
+            locations={(() => {
+              switch (searchResults.length) {
+                case 0:
+                  return locations;
+                default:
+                  return searchResults;
+              }
+            })()}
             onSearchLocations={this.searchLocations}
           />
           <Map
