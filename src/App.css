@@ -191,12 +191,4 @@ dd {
   dl {
     max-height: 4rem;
   }
-  dt {
-    padding: 0.25rem 0.5rem;
-  }
-  dd {
-    margin: 0;
-    padding: 0.5rem;
-    min-height: 1.5rem;
-  }
 }
