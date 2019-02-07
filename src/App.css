@@ -1,9 +1,19 @@
+/* --------- Global Layout/Style  --------- */
 body {
   color: #383633;
 }
 
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* --------- Header  --------- */
+
 header {
   padding: 1rem 0 1rem 1.5rem;
+  height: 40px;
+  background-color: #244c5a;
 }
 
 h1 {
@@ -15,26 +25,22 @@ h1 {
   vertical-align: bottom;
 }
 
+.App-logo {
+  height: 100%;
+}
+
+/* --------- Sidebar  --------- */
+
+.App-sidebar {
+  display: inherit;
+  flex-flow: column;
+  width: 30%;
+  height: calc(100vh - 40px - 2rem);
+}
+
 h2 {
   padding-left: 1rem;
   flex: 0 1 auto;
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 1rem;
-  overflow: auto;
-  /*
-  * Set ul to fill remaining sidebar space
-  * https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space
-   */
-  flex: 1 1 auto;
 }
 
 .App-search {
@@ -45,22 +51,63 @@ ul {
   flex: 0 1 auto;
 }
 
-.App-header {
-  height: 40px;
-  background-color: #244c5a;
+/*
+* Style UL element as container
+* Allow location details to fill 100% of sidebar
+ */
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  /*
+  * Set ul to fill remaining sidebar space
+  * https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space
+   */
+  flex: 1 1 auto;
 }
 
-.App-logo {
-  height: 100%;
+h3 {
+  margin-top: 0;
 }
 
-.App-sidebar {
-  display: inherit;
-  flex-flow: column;
-  width: 30%;
-  height: calc(100vh - 40px - 2rem);
+/*
+* Set padding on list elements rather than ul
+* Allows background hover to fill 100% of sidebar
+ */
+
+li {
+  padding: 1rem;
 }
 
+li:hover {
+  background-color: #f2f2f2;
+}
+
+/*
+* Style basic details as horizontal table
+* https://www.the-art-of-web.com/css/format-dl/
+ */
+
+dl {
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 6rem;
+  border: 1px solid #383633;
+}
+dt {
+  padding: 0.25rem 0.5rem;
+  background: #244c5a;
+  color: #fff;
+}
+dd {
+  margin: 0;
+  padding: 0.5rem;
+  min-height: 1.5rem;
+}
+
+/* --------- Map  --------- */
 .App-map {
   width: 70%;
 }
