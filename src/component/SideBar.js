@@ -22,7 +22,7 @@ class Sidebar extends React.Component {
   };
 
   clearQuery = () => {
-    this.setState({ query: '' });
+    this.setState({ query: '' }, this.searchLocations(''));
   };
 
   searchLocations = (query) => {
@@ -45,17 +45,24 @@ class Sidebar extends React.Component {
     return (
       <div className="App-sidebar">
         <h2>Explore The Hood</h2>
-        <input
-          className="App-search"
-          id="App-Search"
-          type="text"
-          placeholder="Search by place name..."
-          value={query}
-          onChange={(event) => {
-            this.updateQuery(event.target.value);
-          }}
-          aria-label="Search Neighborhood"
-        />
+        <div className="search-container">
+          <input
+            className="App-search"
+            id="App-Search"
+            type="text"
+            placeholder="Search by place name..."
+            value={query}
+            onChange={(event) => {
+              this.updateQuery(event.target.value);
+            }}
+            aria-label="Search Neighborhood"
+          />
+          <button
+            className="clear-search"
+            arira-label="Clear Search"
+            onClick={(e) => this.clearQuery()}
+          />
+        </div>
 
         <Location locations={searchResults} />
       </div>
