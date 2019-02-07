@@ -47,6 +47,7 @@ class Sidebar extends React.Component {
         </div>
 
         <Location locations={locations} />
+
         <details>
           <summary>Data Source:</summary>
           Location details sourced from{' '}

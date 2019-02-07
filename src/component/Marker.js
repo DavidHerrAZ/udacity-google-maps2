@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Marker } from 'react-google-maps';
+import crosshairs from '../crosshairs.svg';
 
 class Markers extends React.Component {
   static propTypes = {
@@ -18,7 +19,13 @@ class Markers extends React.Component {
 
     return (
       <>
-        <Marker key="Home" title="Home" name="Home" position={configCenter} />
+        <Marker
+          key="Home"
+          title="Home"
+          name="Home"
+          position={configCenter}
+          defaultIcon={crosshairs}
+        />
         {mapLocations.map((location) => (
           <Marker
             key={location.yelpDetails.id || location.title}
