@@ -11,17 +11,34 @@ class App extends Component {
     locations: [],
   };
 
-  // Set state to required 5 app locations on app mount
-  componentDidMount() {
+  // Set state to required 5 app locations before mount w/ static data.
+  componentWillMount() {
     this.setState({ locations });
+  }
 
+  // Once mounted, update state with the business details from Yelp.
+  componentDidMount() {
     locations.map((location) => {
       Yelp.getLocationDetails(
         location.title,
         location.position.lat,
         location.position.lng,
         500
-      ).then((data) => console.log(data, location.id));
+      ).then((results) => {
+        // https://stackoverflow.com/questions/29537299/react-how-do-i-update-state-item1-on-setstate-with-jsfiddle
+        // Make a shallow copy of locations
+        let locationsCopy = [...this.state.locations];
+        // Make a shallow copy of yelpDetails
+        let locationCopy = { ...locationsCopy[location.id] };
+        // Set it's yelpDetails property equal to the getLocationDetails results
+        locationCopy.yelpDetails = results;
+        // Put matched location back in
+        locationsCopy[location.id] = locationCopy;
+        // And update state with the copy
+        this.setState({
+          locations: locationsCopy,
+        });
+      });
     });
   }
 
