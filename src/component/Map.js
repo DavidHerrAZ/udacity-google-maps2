@@ -19,7 +19,6 @@ const Map = compose(
     containerElement: (
       <div
         className="App-map"
-        // style={{ height: `calc(100vh - 40px - 2rem)` }}
         role="application"
         aria-label="Neighborhood Map"
       />
