@@ -46,6 +46,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <nav>
+            <a href="#App-Search" id="skip-to-content">
+              Skip to Neighborhood Search
+            </a>
+            <a href="#location-card" id="skip-to-content">
+              Skip to Neighborhood Listings
+            </a>
+          </nav>
           <img src={logo} className="App-logo" alt="logo" />
           <h1>HoodLuv</h1>
         </header>

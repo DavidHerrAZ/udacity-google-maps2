@@ -47,12 +47,14 @@ class Sidebar extends React.Component {
         <h2>Explore The Hood</h2>
         <input
           className="App-search"
+          id="App-Search"
           type="text"
           placeholder="Search by place name..."
           value={query}
           onChange={(event) => {
             this.updateQuery(event.target.value);
           }}
+          aria-label="Search Neighborhood"
         />
 
         <Location locations={searchResults} />

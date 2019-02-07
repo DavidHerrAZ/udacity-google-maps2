@@ -15,9 +15,10 @@ class Location extends React.Component {
           <li
             key={location.yelpDetails.id || location.title}
             className="location-card"
+            id="location-card"
           >
             <h3>{location.title}</h3>
-            <dl clasName="location-details">
+            <dl className="location-details">
               <dt className="location-details-head">Price:</dt>
               <dd className="location-details-item">
                 {location.yelpDetails.price || `N/A`}

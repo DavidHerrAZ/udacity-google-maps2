@@ -81,7 +81,8 @@ li {
   padding: 1rem;
 }
 
-li:hover {
+li:hover,
+li:focus {
   background-color: #f2f2f2;
 }
 
@@ -110,4 +111,20 @@ dd {
 /* --------- Map  --------- */
 .App-map {
   width: 70%;
+}
+
+/* ====================== a11y skip to content ====================== */
+/* By default, do not show skip to content link */
+#skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: #f58500;
+  color: #fff;
+  width: fit-content;
+  text-align: center;
+}
+/* But display when FOCUS */
+#skip-to-content:focus {
+  top: 0;
 }
