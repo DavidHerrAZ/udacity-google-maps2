@@ -132,9 +132,10 @@ dd {
 /* --------- Map  --------- */
 .App-map {
   width: 70%;
+  height: `calc(100vh - 40px - 2rem);
 }
 
-/* ====================== a11y skip to content ====================== */
+/* ====================== a11y ====================== */
 /* By default, do not show skip to content link */
 #skip-to-content {
   position: absolute;
@@ -148,4 +149,54 @@ dd {
 /* But display when FOCUS */
 #skip-to-content:focus {
   top: 0;
+}
+
+/* ====================== usability ====================== */
+/* Go to single column layout on mobile layout */
+
+@media screen and (max-width: 760px) {
+  .App-sidebar {
+    width: 100%;
+    height: calc(40vh - 30px);
+  }
+
+  .App-map {
+    width: 100%;
+    height: calc(60vh - 30px);
+  }
+
+  /* --------- Text Sizing  --------- */
+
+  body {
+    font-size: 12px;
+  }
+
+  header {
+    height: 30px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  /* --------- Detail Sizing  --------- */
+  dl {
+    max-height: 4rem;
+  }
+  dt {
+    padding: 0.25rem 0.5rem;
+  }
+  dd {
+    margin: 0;
+    padding: 0.5rem;
+    min-height: 1.5rem;
+  }
 }
