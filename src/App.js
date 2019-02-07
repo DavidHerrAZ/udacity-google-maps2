@@ -12,12 +12,9 @@ class App extends Component {
   };
 
   // Set state to required 5 app locations before mount w/ static data.
-  componentWillMount() {
-    this.setState({ locations });
-  }
-
-  // Once mounted, update state with the business details from Yelp.
   componentDidMount() {
+    this.setState({ locations });
+
     locations.map((location) => {
       Yelp.getLocationDetails(
         location.title,
@@ -43,14 +40,16 @@ class App extends Component {
   }
 
   render() {
+    const { locations } = this.state;
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <main>
-          <Sidebar locations={this.state.locations} />
-          <Map locations={this.state.locations} />
+          <Sidebar locations={locations} />
+          <Map locations={locations} />
         </main>
       </div>
     );

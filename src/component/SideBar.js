@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Listing from './Listing';
+import Location from './Location';
 import escapeRegExp from 'escape-string-regexp';
 
 class Sidebar extends React.Component {
@@ -13,25 +13,34 @@ class Sidebar extends React.Component {
     searchResults: [],
   };
 
+  componentWillReceiveProps() {
+    this.setState({ searchResults: this.props.locations });
+  }
+
   updateQuery = (query) => {
-    this.setState({ query: query });
+    this.setState({ query: query }, this.searchLocations(query));
   };
 
   clearQuery = () => {
     this.setState({ query: '' });
   };
 
-  render() {
-    const { query } = this.state;
-    const { locations } = this.props;
+  searchLocations = (query) => {
+    let results;
 
-    let searchResults;
-    if (query) {
+    if (query !== '') {
       const match = new RegExp(escapeRegExp(query), 'i');
-      searchResults = locations.filter((listing) => match.test(listing.title));
+      results = this.props.locations.filter((location) =>
+        match.test(location.title)
+      );
+      this.setState({ searchResults: results });
     } else {
-      searchResults = locations;
+      this.setState({ searchResults: this.props.locations });
     }
+  };
+
+  render() {
+    const { query, searchResults } = this.state;
 
     return (
       <div className="App-sidebar">
@@ -45,11 +54,7 @@ class Sidebar extends React.Component {
           }}
         />
 
-        <ul className="App-listings">
-          {searchResults.map((listing) => (
-            <Listing listing={listing} />
-          ))}
-        </ul>
+        <Location locations={searchResults} />
       </div>
     );
   }

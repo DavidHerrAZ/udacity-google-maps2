@@ -21,7 +21,7 @@ class Markers extends React.Component {
         <Marker key="Home" title="Home" name="Home" position={configCenter} />
         {mapLocations.map((location) => (
           <Marker
-            key={location.yelpDetails.id}
+            key={location.yelpDetails.id || location.title}
             title={location.title}
             name={location.title}
             position={location.position}
