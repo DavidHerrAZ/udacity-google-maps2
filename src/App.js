@@ -5,14 +5,16 @@ import Map from './component/Map';
 import Sidebar from './component/SideBar';
 import locations from './data/locations.json';
 import * as Yelp from './api/YelplAPI';
+import escapeRegExp from 'escape-string-regexp';
 
 class App extends Component {
   state = {
     locations: [],
+    searchResults: [],
   };
 
   // Set state to required 5 app locations at mount w/ static data.
-  componentDidMount() {
+  componentWillMount() {
     this.setState({ locations });
 
     // Then call yelp to supplement with business details & re-set state.
@@ -38,10 +40,26 @@ class App extends Component {
         });
       });
     });
+
+    this.setState({ searchResults: this.state.locations });
   }
 
+  searchLocations = (query) => {
+    let results;
+
+    if (query !== '') {
+      const match = new RegExp(escapeRegExp(query), 'i');
+      results = this.state.locations.filter((location) =>
+        match.test(location.title)
+      );
+      this.setState({ searchResults: results });
+    } else {
+      this.setState({ searchResults: this.state.locations });
+    }
+  };
+
   render() {
-    const { locations } = this.state;
+    const { searchResults, locations } = this.state;
 
     return (
       <div className="App">
@@ -58,8 +76,20 @@ class App extends Component {
           <h1>HoodLuv</h1>
         </header>
         <main>
-          <Sidebar locations={locations} />
-          <Map locations={locations} />
+          <Sidebar
+            locations={searchResults}
+            onSearchLocations={this.searchLocations}
+          />
+          <Map
+            locations={(() => {
+              switch (searchResults.length) {
+                case 0:
+                  return locations;
+                default:
+                  return searchResults;
+              }
+            })()}
+          />
         </main>
       </div>
     );
