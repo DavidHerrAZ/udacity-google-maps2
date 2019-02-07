@@ -17,15 +17,14 @@ class Location extends React.Component {
             className="location-card"
           >
             <h3>{location.title}</h3>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Price: {location.yelpDetails.price || `N/A`}</td>
-                  <td>Rating: {location.yelpDetails.rating || `N/A`}</td>
-                  <td>Reviews: {location.yelpDetails.review_count || `N/A`}</td>
-                </tr>
-              </tbody>
-            </table>
+            <dl>
+              <dt>Price:</dt>
+              <dd>{location.yelpDetails.price || `N/A`}</dd>
+              <dt>Rating:</dt>
+              <dd>{location.yelpDetails.rating || `N/A`}</dd>
+              <dt>Reviews:</dt>
+              <dd>{location.yelpDetails.review_count || `N/A`}</dd>
+            </dl>
           </li>
         ))}
       </ul>
