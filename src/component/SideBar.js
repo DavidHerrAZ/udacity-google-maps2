@@ -47,6 +47,11 @@ class Sidebar extends React.Component {
         </div>
 
         <Location locations={locations} />
+        <details>
+          <summary>Data Source:</summary>
+          Location details sourced from{' '}
+          <a href="https://www.yelp.com/developers/documentation/v3">Yelp</a>
+        </details>
       </div>
     );
   }
