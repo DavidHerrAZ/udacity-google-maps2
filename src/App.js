@@ -11,10 +11,11 @@ class App extends Component {
     locations: [],
   };
 
-  // Set state to required 5 app locations before mount w/ static data.
+  // Set state to required 5 app locations at mount w/ static data.
   componentDidMount() {
     this.setState({ locations });
 
+    // Then call yelp to supplement with business details & re-set state.
     locations.map((location) => {
       Yelp.getLocationDetails(
         location.title,
