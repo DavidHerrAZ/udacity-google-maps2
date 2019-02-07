@@ -18,15 +18,10 @@ class Markers extends React.Component {
 
     return (
       <>
-        <Marker
-          title="Home"
-          name="Home"
-          position={configCenter}
-          animation={google.maps.Animation.BOUNCE}
-        />
+        <Marker key="Home" title="Home" name="Home" position={configCenter} />
         {mapLocations.map((location) => (
           <Marker
-            key={(location.position.lat, location.position.lng)}
+            key={location.yelpDetails.id}
             title={location.title}
             name={location.title}
             position={location.position}
