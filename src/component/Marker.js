@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Marker } from 'react-google-maps';
+import { Marker, InfoWindow } from 'react-google-maps';
 import crosshairs from '../crosshairs.svg';
 
 class Markers extends React.Component {
@@ -26,14 +26,29 @@ class Markers extends React.Component {
           position={configCenter}
           defaultIcon={crosshairs}
         />
+
         {mapLocations.map((location) => (
           <Marker
             key={location.yelpDetails.id || location.title}
             title={location.title}
             name={location.title}
             position={location.position}
-            animation={google.maps.Animation.DROP}
-          />
+            defaultAnimation={google.maps.Animation.DROP}
+          >
+            <InfoWindow>
+              <div className="location-info">
+                <h3>
+                  <a href={location.yelpDetails.url}>{location.title}</a>
+                </h3>
+                <img
+                  className="location-info-image"
+                  alt={location.title}
+                  src={location.yelpDetails.image_url}
+                />
+                <p>Phone: {location.yelpDetails.display_phone}</p>
+              </div>
+            </InfoWindow>
+          </Marker>
         ))}
       </>
     );

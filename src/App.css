@@ -102,8 +102,8 @@ li {
   padding: 1rem;
 }
 
-li:hover,
-li:focus {
+.location-card:hover,
+.location-card:focus {
   background-color: #f2f2f2;
 }
 
@@ -133,6 +133,18 @@ dd {
 .App-map {
   width: 70%;
   height: `calc(100vh - 40px - 2rem);
+}
+
+/* --------- Info Window  --------- */
+.location-info {
+  max-width: 200px;
+  max-height: fit-content;
+}
+
+.location-info-image {
+  width: 90%;
+  height: auto;
+  max-height: 200px;
 }
 
 /* ====================== a11y ====================== */
