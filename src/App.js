@@ -69,6 +69,7 @@ class App extends Component {
   toggleOpen = (id) => {
     if (id === this.state.showInfoBoxID) {
       this.setState({ showInfoBoxID: false });
+      this.setState({ animateMarkerID: false });
     } else this.setState({ showInfoBoxID: id });
   };
 
