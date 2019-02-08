@@ -11,6 +11,9 @@ class App extends Component {
   state = {
     locations: [],
     searchResults: [],
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {},
   };
 
   // Set state to required 5 app locations at mount w/ static data.
@@ -44,6 +47,8 @@ class App extends Component {
     this.setState({ searchResults: this.state.locations });
   }
 
+  // Parent level state handler for showing list & markers
+  // corresponding to matches in the search bar
   searchLocations = (query) => {
     let results;
 
@@ -55,6 +60,36 @@ class App extends Component {
       this.setState({ searchResults: results });
     } else {
       this.setState({ searchResults: this.state.locations });
+    }
+  };
+
+  // Parent level state andler for showing info windows
+  // using either map marker or the sidebar
+  markerClick = (props, marker, e) => {
+    // Check if the Info Window is showing.
+    // If not...
+    if (!this.state.showingInfoWindow) {
+      // Show the window
+      this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true,
+      });
+    } else {
+      // close the window
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null,
+      });
+    }
+  };
+
+  mapClick = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null,
+      });
     }
   };
 
@@ -96,6 +131,11 @@ class App extends Component {
                   return searchResults;
               }
             })()}
+            showingInfoWindow={this.state.showingInfoWindow}
+            activeMarker={this.state.activeMarker}
+            selectedPlace={this.state.selectedPlace}
+            onMapClick={this.mapClick}
+            onMarkerClick={this.markerClick}
           />
         </main>
       </div>

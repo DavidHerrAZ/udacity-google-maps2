@@ -27,9 +27,9 @@ const Map = compose(
   }),
   withScriptjs,
   withGoogleMap
-)((locations) => (
+)((locationProps) => (
   <GoogleMap defaultZoom={configZoom} defaultCenter={configCenter}>
-    <Markers locations={locations} configCenter={configCenter} />
+    <Markers locations={locationProps} configCenter={configCenter} />
   </GoogleMap>
 ));
 

@@ -10,9 +10,16 @@ class Markers extends React.Component {
 
   render() {
     // set locations object to passed props
-    const { locations, configCenter } = this.props;
-    // further deconstruct locations object for map function
-    const mapLocations = locations.locations;
+    const {
+      activeMarker,
+      locations,
+      onMapClick,
+      onMarkerClick,
+      selectedPlace,
+      showingInfoWindow,
+    } = this.props.locations;
+
+    const { configCenter } = this.props;
 
     // Declare google to set marker animation
     const google = window.google;
@@ -27,7 +34,7 @@ class Markers extends React.Component {
           defaultIcon={crosshairs}
         />
 
-        {mapLocations.map((location) => (
+        {locations.map((location) => (
           <Marker
             key={location.yelpDetails.id || location.title}
             title={location.title}
@@ -35,19 +42,21 @@ class Markers extends React.Component {
             position={location.position}
             defaultAnimation={google.maps.Animation.DROP}
           >
-            <InfoWindow>
-              <div className="location-info">
-                <h3>
-                  <a href={location.yelpDetails.url}>{location.title}</a>
-                </h3>
-                <img
-                  className="location-info-image"
-                  alt={location.title}
-                  src={location.yelpDetails.image_url}
-                />
-                <p>Phone: {location.yelpDetails.display_phone}</p>
-              </div>
-            </InfoWindow>
+            {showingInfoWindow && (
+              <InfoWindow>
+                <div className="location-info">
+                  <h3>
+                    <a href={location.yelpDetails.url}>{location.title}</a>
+                  </h3>
+                  <img
+                    className="location-info-image"
+                    alt={location.title}
+                    src={location.yelpDetails.image_url}
+                  />
+                  <p>Phone: {location.yelpDetails.display_phone}</p>
+                </div>
+              </InfoWindow>
+            )}
           </Marker>
         ))}
       </>
