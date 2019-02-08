@@ -20,7 +20,6 @@ class Markers extends React.Component {
       animateMarkerID,
       locations,
       showInfoBoxID,
-      toggleAnimate,
       toggleInfoWindow,
     } = this.props.locations;
 

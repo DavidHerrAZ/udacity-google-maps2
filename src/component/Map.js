@@ -33,10 +33,4 @@ const Map = compose(
   </GoogleMap>
 ));
 
-class MapComponent extends React.Component {
-  render() {
-    return <Map />;
-  }
-}
-
 export default Map;

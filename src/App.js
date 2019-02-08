@@ -41,6 +41,7 @@ class App extends Component {
           locations: locationsCopy,
         });
       });
+      return location;
     });
 
     this.setState({ searchResults: this.state.locations });
