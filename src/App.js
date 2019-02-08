@@ -12,6 +12,7 @@ class App extends Component {
     locations: [],
     searchResults: [],
     showInfoBoxID: false,
+    animateMarkerID: false,
   };
 
   // Set state to required 5 app locations at mount w/ static data.
@@ -70,6 +71,12 @@ class App extends Component {
     } else this.setState({ showInfoBoxID: id });
   };
 
+  toggleAnimate = (id) => {
+    if (id === this.state.animateMarkerID) {
+      this.setState({ animateMarkerID: false });
+    } else this.setState({ animateMarkerID: id });
+  };
+
   render() {
     const { searchResults, locations } = this.state;
 
@@ -99,6 +106,8 @@ class App extends Component {
             })()}
             showInfoBoxID={this.state.showInfoBoxID}
             toggleInfoWindow={this.toggleOpen}
+            animateMarkerID={this.state.animateMarkerID}
+            toggleAnimate={this.toggleAnimate}
             onSearchLocations={this.searchLocations}
           />
           <Map
@@ -112,6 +121,8 @@ class App extends Component {
             })()}
             showInfoBoxID={this.state.showInfoBoxID}
             toggleInfoWindow={this.toggleOpen}
+            animateMarkerID={this.state.animateMarkerID}
+            toggleAnimate={this.toggleAnimate}
           />
         </main>
       </div>

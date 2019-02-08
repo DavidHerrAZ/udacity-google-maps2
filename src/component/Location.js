@@ -5,10 +5,17 @@ class Location extends React.Component {
   static propTypes = {
     locations: PropTypes.array.isRequired,
     toggleInfoWindow: PropTypes.func.isRequired,
+    toggleAnimate: PropTypes.func.isRequired,
+  };
+
+  // Multiple calls needed on location click
+  handleLocationClick = (id) => {
+    this.props.toggleInfoWindow(id);
+    this.props.toggleAnimate(id);
   };
 
   render() {
-    const { locations, toggleInfoWindow } = this.props;
+    const { locations } = this.props;
 
     return (
       <ul className="App-locations">
@@ -18,7 +25,7 @@ class Location extends React.Component {
             className="location-card"
             id="location-card"
             tabIndex="0"
-            onClick={() => toggleInfoWindow(location.id)}
+            onClick={() => this.handleLocationClick(location.id)}
           >
             <h3>{location.title}</h3>
             <dl className="location-details">

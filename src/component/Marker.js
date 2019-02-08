@@ -8,9 +8,21 @@ class Markers extends React.Component {
     locations: PropTypes.object.isRequired,
   };
 
+  // Multiple calls needed on marker click
+  handleMarkerClick = (id) => {
+    this.props.locations.toggleInfoWindow(id);
+    this.props.locations.toggleAnimate(id);
+  };
+
   render() {
     // set locations object to passed props
-    const { locations, showInfoBoxID, toggleInfoWindow } = this.props.locations;
+    const {
+      animateMarkerID,
+      locations,
+      showInfoBoxID,
+      toggleAnimate,
+      toggleInfoWindow,
+    } = this.props.locations;
 
     const { configCenter } = this.props;
 
@@ -33,8 +45,15 @@ class Markers extends React.Component {
             title={location.title}
             name={location.title}
             position={location.position}
-            defaultAnimation={google.maps.Animation.DROP}
-            onClick={() => toggleInfoWindow(location.id)}
+            animation={(() => {
+              switch (animateMarkerID) {
+                case location.id:
+                  return google.maps.Animation.BOUNCE;
+                default:
+                  return;
+              }
+            })()}
+            onClick={() => this.handleMarkerClick(location.id)}
           >
             {showInfoBoxID === location.id && (
               <InfoWindow onCloseClick={() => toggleInfoWindow(location.id)}>

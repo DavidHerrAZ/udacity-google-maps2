@@ -7,6 +7,7 @@ class Sidebar extends React.Component {
     locations: PropTypes.array.isRequired,
     onSearchLocations: PropTypes.func.isRequired,
     toggleInfoWindow: PropTypes.func.isRequired,
+    toggleAnimate: PropTypes.func.isRequired,
   };
 
   state = {
@@ -23,7 +24,14 @@ class Sidebar extends React.Component {
 
   render() {
     const { query } = this.state;
-    const { locations, toggleInfoWindow, showInfoBoxID } = this.props;
+
+    const {
+      locations,
+      toggleInfoWindow,
+      showInfoBoxID,
+      toggleAnimate,
+      animateMarkerID,
+    } = this.props;
 
     return (
       <div className="App-sidebar">
@@ -51,6 +59,8 @@ class Sidebar extends React.Component {
           locations={locations}
           showInfoBoxID={showInfoBoxID}
           toggleInfoWindow={toggleInfoWindow}
+          animateMarkerID={animateMarkerID}
+          toggleAnimate={toggleAnimate}
         />
 
         <details>
