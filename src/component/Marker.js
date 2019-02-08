@@ -62,7 +62,7 @@ class Markers extends React.Component {
                   </h3>
                   <img
                     className="location-info-image"
-                    alt={location.title}
+                    alt={`food from ${location.title}`}
                     src={location.yelpDetails.image_url}
                   />
                   <p>Phone: {location.yelpDetails.display_phone}</p>
