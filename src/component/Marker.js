@@ -11,12 +11,9 @@ class Markers extends React.Component {
   render() {
     // set locations object to passed props
     const {
-      activeMarker,
       locations,
-      onMapClick,
-      onMarkerClick,
-      selectedPlace,
       showingInfoWindow,
+      toggleInfoWindow,
     } = this.props.locations;
 
     const { configCenter } = this.props;
@@ -41,9 +38,13 @@ class Markers extends React.Component {
             name={location.title}
             position={location.position}
             defaultAnimation={google.maps.Animation.DROP}
+            onClick={toggleInfoWindow}
           >
             {showingInfoWindow && (
-              <InfoWindow>
+              <InfoWindow
+                onCloseClick={toggleInfoWindow}
+                options={{ closeBoxURL: ``, enableEventPropagation: true }}
+              >
                 <div className="location-info">
                   <h3>
                     <a href={location.yelpDetails.url}>{location.title}</a>

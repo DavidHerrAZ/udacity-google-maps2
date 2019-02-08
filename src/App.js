@@ -12,8 +12,6 @@ class App extends Component {
     locations: [],
     searchResults: [],
     showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {},
   };
 
   // Set state to required 5 app locations at mount w/ static data.
@@ -65,31 +63,11 @@ class App extends Component {
 
   // Parent level state andler for showing info windows
   // using either map marker or the sidebar
-  markerClick = (props, marker, e) => {
-    // Check if the Info Window is showing.
-    // If not...
-    if (!this.state.showingInfoWindow) {
-      // Show the window
-      this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true,
-      });
+  toggleOpen = (isShowing) => {
+    if (!isShowing) {
+      this.setState({ showingInfoWindow: false });
     } else {
-      // close the window
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null,
-      });
-    }
-  };
-
-  mapClick = (props) => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null,
-      });
+      this.setState({ showingInfoWindow: true });
     }
   };
 
@@ -132,10 +110,7 @@ class App extends Component {
               }
             })()}
             showingInfoWindow={this.state.showingInfoWindow}
-            activeMarker={this.state.activeMarker}
-            selectedPlace={this.state.selectedPlace}
-            onMapClick={this.mapClick}
-            onMarkerClick={this.markerClick}
+            toggleInfoWindow={this.toggleOpen}
           />
         </main>
       </div>
