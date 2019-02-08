@@ -20,18 +20,12 @@ class Location extends React.Component {
           >
             <h3>{location.title}</h3>
             <dl className="location-details">
-              <dt className="location-details-head">Price:</dt>
-              <dd className="location-details-item">
-                {location.yelpDetails.price || `N/A`}
-              </dd>
-              <dt className="location-details-head">Rating:</dt>
-              <dd className="location-details-item">
-                {location.yelpDetails.rating || `N/A`}
-              </dd>
-              <dt className="location-details-head">Reviews:</dt>
-              <dd className="location-details-item">
-                {location.yelpDetails.review_count || `N/A`}
-              </dd>
+              <dt>Price:</dt>
+              <dd>{location.yelpDetails.price || `N/A`}</dd>
+              <dt>Rating:</dt>
+              <dd>{location.yelpDetails.rating || `N/A`}</dd>
+              <dt>Reviews:</dt>
+              <dd>{location.yelpDetails.review_count || `N/A`}</dd>
             </dl>
           </li>
         ))}
