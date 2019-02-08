@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     locations: [],
     searchResults: [],
-    showingInfoWindow: false,
+    showInfoBoxID: false,
   };
 
   // Set state to required 5 app locations at mount w/ static data.
@@ -61,14 +61,11 @@ class App extends Component {
     }
   };
 
-  // Parent level state andler for showing info windows
+  // Parent level state handler for showing info windows
   // using either map marker or the sidebar
-  toggleOpen = (isShowing) => {
-    if (!isShowing) {
-      this.setState({ showingInfoWindow: false });
-    } else {
-      this.setState({ showingInfoWindow: true });
-    }
+  // https://github.com/tomchentw/react-google-maps/issues/753
+  toggleOpen = (id) => {
+    this.setState({ showInfoBoxID: id });
   };
 
   render() {
@@ -109,7 +106,7 @@ class App extends Component {
                   return searchResults;
               }
             })()}
-            showingInfoWindow={this.state.showingInfoWindow}
+            showInfoBoxID={this.state.showInfoBoxID}
             toggleInfoWindow={this.toggleOpen}
           />
         </main>
