@@ -65,7 +65,9 @@ class App extends Component {
   // using either map marker or the sidebar
   // https://github.com/tomchentw/react-google-maps/issues/753
   toggleOpen = (id) => {
-    this.setState({ showInfoBoxID: id });
+    if (id === this.state.showInfoBoxID) {
+      this.setState({ showInfoBoxID: false });
+    } else this.setState({ showInfoBoxID: id });
   };
 
   render() {
@@ -95,6 +97,8 @@ class App extends Component {
                   return searchResults;
               }
             })()}
+            showInfoBoxID={this.state.showInfoBoxID}
+            toggleInfoWindow={this.toggleOpen}
             onSearchLocations={this.searchLocations}
           />
           <Map

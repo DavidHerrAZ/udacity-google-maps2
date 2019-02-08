@@ -6,6 +6,7 @@ class Sidebar extends React.Component {
   static propTypes = {
     locations: PropTypes.array.isRequired,
     onSearchLocations: PropTypes.func.isRequired,
+    toggleInfoWindow: PropTypes.func.isRequired,
   };
 
   state = {
@@ -22,7 +23,7 @@ class Sidebar extends React.Component {
 
   render() {
     const { query } = this.state;
-    const { locations } = this.props;
+    const { locations, toggleInfoWindow, showInfoBoxID } = this.props;
 
     return (
       <div className="App-sidebar">
@@ -46,7 +47,11 @@ class Sidebar extends React.Component {
           />
         </div>
 
-        <Location locations={locations} />
+        <Location
+          locations={locations}
+          showInfoBoxID={showInfoBoxID}
+          toggleInfoWindow={toggleInfoWindow}
+        />
 
         <details>
           <summary>Data Source:</summary>

@@ -37,7 +37,7 @@ class Markers extends React.Component {
             onClick={() => toggleInfoWindow(location.id)}
           >
             {showInfoBoxID === location.id && (
-              <InfoWindow>
+              <InfoWindow onCloseClick={() => toggleInfoWindow(location.id)}>
                 <div className="location-info">
                   <h3>
                     <a href={location.yelpDetails.url}>{location.title}</a>
